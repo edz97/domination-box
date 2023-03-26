@@ -21,9 +21,6 @@ LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
 
 
 
-
-/*********************************************************/
-
 void setup()
 {
   lcd.begin(16, 2);  // set up the LCD's number of columns and rows
@@ -35,74 +32,61 @@ void setup()
   pinMode(outputPinBlueLed, OUTPUT); // sets IO to output
 }
 
-/*********************************************************/
-
 void loop() 
 {
-
-  buttonStateRed = digitalRead(buttonPinRed);
-  buttonStateBlue = digitalRead(buttonPinBlue);
-
-
-  if (buttonStateRed == HIGH)
-  {
-    Serial.println("Red");
-    //digitalWrite(7, HIGH);
-    pointOwner = "Red";
-    lcd.clear();
-    lcd.print("Red owns point");
-  }
-  else {
-    //digitalWrite(7, LOW);
-  }
-
-  if (buttonStateBlue == HIGH)
-  {
-    Serial.println("Blue");
-    pointOwner = "Blue";
-    lcd.clear();
-    lcd.print("Blue owns point");
-
-  }
-
-  if (buttonStateRed == HIGH & buttonStateBlue == HIGH)
-  {
-    pointOwner = "Natural";
-    lcd.clear();
-    lcd.print("Point is natural");
-
-  }
-  lcd.clear();
-
-  scoreUpdater(pointOwner);
-  screenUpdater(pointOwner);
+  buttonStateRed = digitalRead(buttonPinRed); // checks if red button is pressed
+  buttonStateBlue = digitalRead(buttonPinBlue); // checks if blue button is pressed
+  buttonPressedUpdate(buttonPinRed, buttonStateBlue);
+  scoreUpdate(pointOwner);
+  screenUpdate(pointOwner);
   delay(tick);
-
 }
 
-void screenUpdater(String team)
+void screenUpdate(String team)
 {
-
-   
   lcd.print(team + " point");
-  lcd.setCursor(0, 1);
+  lcd.setCursor(0, 1); // moves cursor to colum 0 row 1
   lcd.print("Red");
   lcd.print(scoreRedTeam);
   lcd.print(" Blue");
   lcd.print(scoreBlueTeam);
-
 }
 
-void scoreUpdater(String team)
+void scoreUpdate(String team)
 {
-  if (team == "Red") {
-  scoreRedTeam++;
+  if (team == "Red")
+  {
+    scoreRedTeam++;
   }
-  else if (team == "Blue") {
-  scoreBlueTeam++;
+  else if (team == "Blue")
+  {
+    scoreBlueTeam++;
   }
 }
 
+void buttonPressedUpdate(int button1, int button2)
+{
+  if (button1 == HIGH & button2 == HIGH) // natural status
+  {
+    pointOwner = "Natural";
+    digitalWrite(outputPinBlueLed, LOW);
+    digitalWrite(outputPinBlueLed, LOW);
+  }
+  
+  else if (button1 == HIGH) // red status
+  {
+    pointOwner = "Red";
+    digitalWrite(outputPinRedLed, HIGH);
+    digitalWrite(outputPinBlueLed, LOW);
+  }
+
+  else if (button2 == HIGH) // blue status
+  {
+    pointOwner = "Blue";
+    digitalWrite(outputPinRedLed, LOW);
+    digitalWrite(outputPinBlueLed, HIGH);
+  }
+}
 
 
 
