@@ -3,7 +3,8 @@
 const int buttonPinRed = 8; // input red button
 const int buttonPinBlue = 9; // input blue button
 const int outputPinRedLed = 10; // output red led
-const int outputPinBlueLed = 11; // output blue led 
+const int outputPinBlueLed = 11; // output blue led
+const int outputPinGreenLed = 12; // output green led 
 
 int buttonStateRed = 0; // to store value of button pushed or not
 int buttonStateBlue = 0; // to store value of button pushed or not
@@ -30,13 +31,14 @@ void setup()
   pinMode(buttonPinBlue, INPUT); // sets IO to input
   pinMode(outputPinRedLed, OUTPUT); // sets IO to output
   pinMode(outputPinBlueLed, OUTPUT); // sets IO to output
+  pinMode(outputPinGreenLed, OUTPUT); // sets IO to output
 }
 
 void loop() 
 {
   buttonStateRed = digitalRead(buttonPinRed); // checks if red button is pressed
   buttonStateBlue = digitalRead(buttonPinBlue); // checks if blue button is pressed
-  buttonPressedUpdate(buttonPinRed, buttonStateBlue);
+  buttonPressedUpdate(buttonStateRed, buttonStateBlue);
   scoreUpdate(pointOwner);
   screenUpdate(pointOwner);
   delay(tick);
@@ -44,6 +46,7 @@ void loop()
 
 void screenUpdate(String team)
 {
+  lcd.clear();
   lcd.print(team + " point");
   lcd.setCursor(0, 1); // moves cursor to colum 0 row 1
   lcd.print("Red");
@@ -69,24 +72,24 @@ void buttonPressedUpdate(int button1, int button2)
   if (button1 == HIGH & button2 == HIGH) // natural status
   {
     pointOwner = "Natural";
+    digitalWrite(outputPinRedLed, LOW);
     digitalWrite(outputPinBlueLed, LOW);
-    digitalWrite(outputPinBlueLed, LOW);
+    digitalWrite(outputPinGreenLed, HIGH);
   }
   
   else if (button1 == HIGH) // red status
   {
-    pointOwner = "Red";
+    pointOwner = "Red";   
     digitalWrite(outputPinRedLed, HIGH);
     digitalWrite(outputPinBlueLed, LOW);
+    digitalWrite(outputPinGreenLed, LOW);
   }
 
   else if (button2 == HIGH) // blue status
   {
     pointOwner = "Blue";
     digitalWrite(outputPinRedLed, LOW);
-    digitalWrite(outputPinBlueLed, HIGH);
+    digitalWrite(outputPinBlueLed, HIGH);  
+    digitalWrite(outputPinGreenLed, LOW);
   }
 }
-
-
-
