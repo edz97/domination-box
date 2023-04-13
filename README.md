@@ -17,7 +17,7 @@ Story of the project
 This project started as a domination box created by engineeringshock.com. 
 https://www.paintballprops.com/domination-box.html link to original product.
 
-Because engineeringshock only sold the electronics a box was build to host all of it. This is the same box i currently use. The mainboard eventually died and insted of buying a new set of electronics i started this project to revive it. I could just changed the main board with an arduino and called it a day but i wanted to do some changes aswell so here we are.
+Because engineeringshock only sold the electronics a box was build to host all of it. This is the same box i currently use. The mainboard eventually died and instead of buying a new set of electronics i started this project to revive it. I could just changed the main board with an arduino and called it a day but i wanted to do some changes aswell so here we are.
 
 
 
@@ -30,9 +30,9 @@ breaking down fast. I fixed it with some hot glue on the connectors and it worke
 
 Results first test:
 
-- This confirmed what i already knew that the components needs to be mounted in a sturdier way
+- This confirmed what i already knew that the components need to be mounted in a sturdier way
 
- The options im now considering is  either going for all component into terminal blocs and wire them together by them or going for a Prototyping board and try to solider as much as possible to it. The final solution is likely going to be a hybrid of these 2.
+ The options im now considering are either going for all components into terminal blocks and wire them together by them or going for a Prototyping board and trying too solider as much as possible to it. The final solution is likely going to be a hybrid of these 2.
 
  - The box needs to be mounted higher and the button presses must be in a way downward to avoid tripping the pole over
 
