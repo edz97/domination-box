@@ -36,3 +36,8 @@ Results first test:
 
  - The box needs to be mounted higher and the button presses must be in a way downward to avoid tripping the pole over
 
+This is easily fixed with some 90 brackets. Preferably in a way so it's easy to assemble/disassemble the box from the pole for easier transportation. 
+
+- The box is not super user friendly  
+
+I want to make the box so it's super friendly to use. The feedback i got is that i need to simplyfi the design so the user only can see 2 buttons colored according to the team they are on to avoid mistakes. Blue teams' button is currently green, and the buttons need to be bigger and easier to push. power button needs to be moved to a more discreate place 
