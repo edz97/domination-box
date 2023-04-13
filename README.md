@@ -41,3 +41,7 @@ This is easily fixed with some 90 brackets. Preferably in a way so it's easy to 
 - The box is not super user friendly  
 
 I want to make the box so it's super friendly to use. The feedback i got is that i need to simplyfi the design so the user only can see 2 buttons colored according to the team they are on to avoid mistakes. Blue teams' button is currently green, and the buttons need to be bigger and easier to push. power button needs to be moved to a more discreate place 
+
+- Score easier to read
+
+My current solution on the score is displaying it in the lcd display but i want to change it to run on the 7 segment display. 
