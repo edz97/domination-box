@@ -1,7 +1,0 @@
-This is not the finnished state of the drawing as the project is still in development stage and will probably be split into a seperate drawing for each mayor component with the goal of increased readability. The current state is just to showcase how its currently wired up.
-
-The resistor for the transistors is to make a small current go trough the transistor for it to open fully. I run with 1K ohms now with the current transistors
-
-The resistors after the switches is pull down resistors for eliminating floating input problems. Different values work and i currently run with 4.7K ohms because that was what i had at hand.   
-
-The arduino runs on 5-12v(up to 24v on short intervalls) but the led strips is 12v so i recommend running with that. I have tested it at 11.1v and it work but the leds are a litte dimmer. 
